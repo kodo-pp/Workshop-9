@@ -5,6 +5,21 @@
 #include <map>
 #include <unordered_set>
 
+enum worldcities_data_columns
+{
+    city = 0,
+    city_ascii,
+    lat,
+    lng,
+    country,
+    iso2,
+    iso3,
+    admin_name,
+    capital,
+    population,
+    id
+};
+
 std::vector<std::vector<std::string>> worldCities ()
 {
     std::ifstream in ("worldcities.csv");
@@ -37,7 +52,7 @@ size_t howManyCountries (const std::vector<std::vector<std::string>> &world_citi
     std::unordered_set<std::string> countries;
     for (const std::vector<std::string> &line : world_cities)
     {
-        countries.insert (line[4]);
+        countries.insert (line[country]);
     }
     return countries.size ();
 }
