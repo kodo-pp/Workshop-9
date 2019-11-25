@@ -17,7 +17,8 @@ enum worldcities_data_columns
     admin_name,
     capital,
     population,
-    id
+    id,
+    total_columns
 };
 
 std::vector<std::vector<std::string>> worldCities ()
@@ -41,7 +42,7 @@ std::vector<std::vector<std::string>> worldCities ()
           tokens.push_back (token);
       }
 
-      if (tokens.size () > 1)
+      if (tokens.size () != total_columns)
         result.push_back (tokens);
     }
     return result;
